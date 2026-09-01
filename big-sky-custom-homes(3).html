@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Big Sky Custom Homes | Scottsdale, Arizona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Public+Sans:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+  :root{
+    --ivory:#F4EFE6;
+    --travertine:#E4D9C4;
+    --limestone:#B9AD94;
+    --charcoal:#2A2621;
+    --bronze:#9C7A4A;
+    --bronze-light:#C7A567;
+    --black:#131110;
+    --concrete:#8C8579;
+  }
+  html{background:var(--ivory); scroll-behavior:smooth;}
+  body{
+    font-family:'Public Sans', sans-serif;
+    background:var(--ivory);
+    color:var(--charcoal);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .font-serif-ed{font-family:'Newsreader', serif;}
+  .font-hand{font-family:'Caveat', cursive;}
+  .eyebrow{
+    font-family:'Public Sans', sans-serif;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    font-size:0.72rem;
+    font-weight:500;
+  }
+  .noise{
+    position:absolute; inset:0; pointer-events:none; opacity:0.05; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .reveal{opacity:1;}
+  .js-ready .reveal{opacity:0; transform:translateY(36px);}
+  .hairline{height:1px; background:currentColor; opacity:0.18;}
+  .img-zoom{overflow:hidden;}
+  .img-zoom img{transition:transform 1.4s cubic-bezier(.16,1,.3,1); transform:scale(1.02);}
+  .img-zoom:hover img{transform:scale(1.09);}
+  ::selection{background:var(--bronze); color:var(--ivory);}
+  .nav-link{position:relative;}
+  .nav-link::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--bronze-light);transition:width .5s cubic-bezier(.16,1,.3,1);}
+  .nav-link:hover::after{width:100%;}
+  .ring-path{stroke-dasharray:1200;stroke-dashoffset:1200;}
+  .ad-card-dark{background:rgba(28,25,22,0.4); border:1px solid rgba(214,201,178,0.15); backdrop-filter:blur(6px);}
+  .ad-card-light{background:rgba(245,241,232,0.55); border:1px solid rgba(42,38,33,0.12); backdrop-filter:blur(6px);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1!important; transform:none!important;}
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- ===== NAV ===== -->
+<header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-10 flex items-center justify-between py-6">
+    <a href="#top" class="font-serif-ed text-[1.15rem] tracking-wide" style="color:var(--ivory)" id="logo-mark">
+      Big&nbsp;Sky <span class="italic font-normal opacity-80">Custom Homes</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-10 eyebrow" style="color:var(--ivory)" id="nav-links">
+      <a href="#legacy" class="nav-link">Legacy</a>
+      <a href="#residences" class="nav-link">Residences</a>
+      <a href="#process" class="nav-link">Process</a>
+      <a href="#founders" class="nav-link">Founders</a>
+      <a href="#areas" class="nav-link">Areas</a>
+    </nav>
+    <a href="#contact" class="hidden md:inline-block eyebrow border px-5 py-3 transition-colors duration-500" style="color:var(--ivory); border-color:rgba(244,239,230,0.4)" id="nav-cta">Start Your Project</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="top" class="relative h-[100svh] w-full overflow-hidden" style="background:var(--black)">
+  <div class="absolute inset-0" id="hero-img-wrap">
+    <img src="https://images.squarespace-cdn.com/content/v1/65ee449c0319a72cd37c98ca/ca447192-975e-4389-952b-e104d0ef932e/121-print-Peak+View+-+Twilight+-+HD-4.jpg"
+         alt="Custom Scottsdale home at twilight" class="w-full h-full object-cover scale-110" id="hero-img">
+  </div>
+  <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(10,9,8,0.75) 0%, rgba(10,9,8,0.15) 30%, rgba(10,9,8,0.25) 55%, rgba(10,9,8,0.75) 82%, rgba(10,9,8,0.96) 100%);"></div>
+  <div class="absolute inset-0" style="background:radial-gradient(ellipse at center, transparent 35%, rgba(10,9,8,0.55) 100%);"></div>
+
+  <div class="relative h-full flex flex-col justify-end px-6 md:px-10 pb-16 md:pb-20 max-w-[1440px] mx-auto">
+    <p class="eyebrow reveal" style="color:var(--limestone)" id="hero-eyebrow">Est. 1997 &nbsp;&middot;&nbsp; Scottsdale, Arizona</p>
+    <h1 class="font-serif-ed font-normal leading-[0.98] mt-6 reveal" style="color:var(--ivory); font-size:clamp(2.6rem, 7vw, 6.2rem); text-shadow:0 4px 40px rgba(0,0,0,0.45)" id="hero-h1">
+      We build homes<br class="hidden md:block"> your family will <span class="italic">inherit.</span>
+    </h1>
+    <p class="mt-8 max-w-md text-[1.02rem] leading-relaxed reveal font-light" style="color:var(--travertine)" id="hero-copy">
+      Three generations of the Robert family have shaped Arizona's finest residences, one hand-built home and one family at a time, since 1997.
+    </p>
+    <div class="flex flex-wrap gap-4 mt-10 reveal" id="hero-ctas">
+      <a href="#contact" class="px-8 py-4 eyebrow" style="background:var(--bronze); color:var(--black)">Start Your Project</a>
+      <a href="#residences" class="px-8 py-4 eyebrow border" style="border-color:rgba(244,239,230,0.35); color:var(--ivory)">View Residences</a>
+    </div>
+  </div>
+  <div class="absolute bottom-8 right-8 md:right-10 hidden md:flex items-center gap-3 eyebrow" style="color:var(--travertine)">
+    <span class="block w-8 hairline" style="color:var(--travertine)"></span> Scroll
+  </div>
+</section>
+
+<!-- ===== LEGACY ===== -->
+<section id="legacy" class="relative py-28 md:py-40 px-6 md:px-10" style="background:var(--ivory)">
+  <div class="max-w-[1440px] mx-auto grid md:grid-cols-12 gap-16">
+    <div class="md:col-span-5">
+      <p class="eyebrow reveal" style="color:var(--bronze)">The Big Sky Legacy</p>
+      <h2 class="font-serif-ed font-normal mt-6 leading-[1.05] reveal" style="font-size:clamp(2rem,3.6vw,3.4rem)">
+        Three generations of building Arizona's finest homes.
+      </h2>
+      <p class="mt-8 leading-relaxed reveal font-light max-w-md" style="color:var(--charcoal); opacity:0.85">
+        Big Sky Custom Homes began in 1997 with a single lot in north Scottsdale and a promise: build as if your own name would be signed to the foundation. That promise has now passed through three generations of the Robert family, and hundreds of homes across the Arizona high desert.
+      </p>
+      <div class="mt-14 grid grid-cols-2 gap-8 max-w-md reveal">
+        <div>
+          <p class="font-serif-ed italic" style="font-size:2.6rem; color:var(--bronze)">28</p>
+          <p class="eyebrow mt-1" style="color:var(--concrete)">Years building</p>
+        </div>
+        <div>
+          <p class="font-serif-ed italic" style="font-size:2.6rem; color:var(--bronze)">3rd</p>
+          <p class="eyebrow mt-1" style="color:var(--concrete)">Generation, still hands-on</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="md:col-span-7 flex items-center justify-center">
+      <svg viewBox="0 0 620 620" class="w-full max-w-[560px]" id="rings-svg">
+        <circle cx="310" cy="310" r="70" fill="none" stroke="var(--limestone)" stroke-width="1" opacity="0.35"/>
+        <circle class="ring-path" cx="310" cy="310" r="150" fill="none" stroke="var(--bronze)" stroke-width="1.4"/>
+        <circle class="ring-path" cx="310" cy="310" r="220" fill="none" stroke="var(--limestone)" stroke-width="1" opacity="0.5"/>
+        <circle class="ring-path" cx="310" cy="310" r="285" fill="none" stroke="var(--bronze)" stroke-width="1" opacity="0.4"/>
+        <text x="310" y="305" text-anchor="middle" class="font-serif-ed italic" style="fill:var(--charcoal); font-size:22px">1997</text>
+        <text x="310" y="330" text-anchor="middle" style="fill:var(--concrete); font-size:10px; letter-spacing:1.5px;">FOUNDED</text>
+
+        <text x="310" y="65" text-anchor="middle" style="fill:var(--charcoal); font-size:13px; letter-spacing:1px;" class="eyebrow">Scottsdale</text>
+        <text x="580" y="315" text-anchor="middle" style="fill:var(--charcoal); font-size:13px; letter-spacing:1px;" class="eyebrow">Paradise Valley</text>
+        <text x="310" y="565" text-anchor="middle" style="fill:var(--charcoal); font-size:13px; letter-spacing:1px;" class="eyebrow">Show Low</text>
+        <text x="46" y="315" text-anchor="middle" style="fill:var(--charcoal); font-size:13px; letter-spacing:1px;" class="eyebrow">Prescott</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURED RESIDENCES ===== -->
+<section id="residences" class="relative py-28 md:py-40 px-6 md:px-10" style="background:var(--travertine)">
+  <div class="max-w-[1440px] mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+      <div>
+        <p class="eyebrow reveal" style="color:var(--bronze)">Featured Residences</p>
+        <h2 class="font-serif-ed font-normal mt-6 leading-[1.05] reveal" style="font-size:clamp(2rem,3.6vw,3.4rem)">
+          A closer look at recent homes.
+        </h2>
+      </div>
+      <p class="max-w-sm font-light leading-relaxed reveal" style="opacity:0.8">Every residence is drawn around how a specific family actually lives, then built by the same crews who framed it, tiled it, and stood behind it.</p>
+    </div>
+
+    <div class="grid md:grid-cols-12 gap-6 md:gap-8">
+      <div class="md:col-span-7 img-zoom relative h-[420px] md:h-[560px] reveal">
+        <img src="https://images.squarespace-cdn.com/content/v1/65ee449c0319a72cd37c98ca/d806b61a-f825-47f1-bafb-2f452a837ccc/14313+Kitchen+2.jpg" class="w-full h-full object-cover" alt="Custom kitchen, Paradise Valley residence">
+        <div class="absolute inset-0" style="background:linear-gradient(0deg, rgba(19,17,16,0.65), transparent 45%)"></div>
+        <div class="absolute bottom-6 left-6 right-6 md:right-auto p-6 ad-card-dark">
+          <p class="eyebrow" style="color:var(--limestone)">Paradise Valley</p>
+          <p class="font-serif-ed italic mt-2" style="color:var(--ivory); font-size:1.6rem">The Cassia Residence</p>
+        </div>
+      </div>
+      <div class="md:col-span-5 flex flex-col gap-6 md:gap-8">
+        <div class="img-zoom relative h-[260px] md:h-[264px] reveal">
+          <img src="https://images.squarespace-cdn.com/content/v1/65ee449c0319a72cd37c98ca/16ad2bd5-13b8-4ad9-99f0-2926c4ea5ba5/14313+Master+Bath.jpg" class="w-full h-full object-cover" alt="Master bath, Scottsdale residence">
+          <div class="absolute inset-0" style="background:linear-gradient(0deg, rgba(19,17,16,0.6), transparent 50%)"></div>
+          <div class="absolute bottom-4 left-4 right-4 p-5 ad-card-dark">
+            <p class="eyebrow" style="color:var(--limestone)">Scottsdale</p>
+            <p class="font-serif-ed italic mt-1" style="color:var(--ivory); font-size:1.25rem">Desert Ridge Estate</p>
+          </div>
+        </div>
+        <div class="img-zoom relative h-[260px] md:h-[264px] reveal">
+          <img src="https://images.squarespace-cdn.com/content/v1/65ee449c0319a72cd37c98ca/8808798a-bceb-4714-a344-7db6f075e683/IMG_1180.jpeg" class="w-full h-full object-cover" alt="Show Low mountain residence">
+          <div class="absolute inset-0" style="background:linear-gradient(0deg, rgba(19,17,16,0.6), transparent 50%)"></div>
+          <div class="absolute bottom-4 left-4 right-4 p-5 ad-card-dark">
+            <p class="eyebrow" style="color:var(--limestone)">Show Low</p>
+            <p class="font-serif-ed italic mt-1" style="color:var(--ivory); font-size:1.25rem">The Ponderosa House</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE BIG SKY DIFFERENCE ===== -->
+<section class="relative" style="background:var(--black)">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-10 pt-24 md:pt-32">
+    <p class="eyebrow reveal" style="color:var(--bronze-light)">The Big Sky Difference</p>
+  </div>
+
+  <div class="divide-y" style="border-color:rgba(244,239,230,0.12)">
+    <div class="diff-panel max-w-[1440px] mx-auto px-6 md:px-10 py-16 md:py-24 grid md:grid-cols-12 gap-6 items-center reveal">
+      <p class="md:col-span-2 font-serif-ed italic text-2xl" style="color:var(--bronze-light)">01</p>
+      <h3 class="md:col-span-6 font-serif-ed font-normal leading-tight" style="color:var(--ivory); font-size:clamp(1.8rem,3vw,2.6rem)">Designed around your life.</h3>
+      <p class="md:col-span-4 font-light leading-relaxed" style="color:var(--travertine); opacity:0.85">Before a single line is drawn, we spend weeks understanding how a family actually moves through a day: where the morning light should fall, where the dog needs a door.</p>
+    </div>
+    <div class="diff-panel max-w-[1440px] mx-auto px-6 md:px-10 py-16 md:py-24 grid md:grid-cols-12 gap-6 items-center reveal">
+      <p class="md:col-span-2 font-serif-ed italic text-2xl" style="color:var(--bronze-light)">02</p>
+      <h3 class="md:col-span-6 font-serif-ed font-normal leading-tight" style="color:var(--ivory); font-size:clamp(1.8rem,3vw,2.6rem)">Crafted by experts.</h3>
+      <p class="md:col-span-4 font-light leading-relaxed" style="color:var(--travertine); opacity:0.85">Our stoneworkers, framers, and finish carpenters have worked together for decades. We don't rotate crews; we build trust that shows in the joinery.</p>
+    </div>
+    <div class="diff-panel max-w-[1440px] mx-auto px-6 md:px-10 py-16 md:py-24 grid md:grid-cols-12 gap-6 items-center reveal">
+      <p class="md:col-span-2 font-serif-ed italic text-2xl" style="color:var(--bronze-light)">03</p>
+      <h3 class="md:col-span-6 font-serif-ed font-normal leading-tight" style="color:var(--ivory); font-size:clamp(1.8rem,3vw,2.6rem)">Built with precision.</h3>
+      <p class="md:col-span-4 font-light leading-relaxed" style="color:var(--travertine); opacity:0.85">Every load calculation, every reveal, every mitered corner is checked twice. Precision isn't a finishing touch here, it's the whole method.</p>
+    </div>
+    <div class="diff-panel max-w-[1440px] mx-auto px-6 md:px-10 py-16 md:py-24 grid md:grid-cols-12 gap-6 items-center reveal">
+      <p class="md:col-span-2 font-serif-ed italic text-2xl" style="color:var(--bronze-light)">04</p>
+      <h3 class="md:col-span-6 font-serif-ed font-normal leading-tight" style="color:var(--ivory); font-size:clamp(1.8rem,3vw,2.6rem)">Delivered for generations.</h3>
+      <p class="md:col-span-4 font-light leading-relaxed" style="color:var(--travertine); opacity:0.85">A Big Sky home is built to outlast trends and be handed down. We're still fielding calls about homes we finished twenty years ago.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section id="process" class="relative" style="background:var(--charcoal)">
+  <div class="max-w-[1440px] mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-8">
+    <p class="eyebrow reveal" style="color:var(--limestone)">The Process</p>
+    <h2 class="font-serif-ed font-normal mt-6 reveal" style="color:var(--ivory); font-size:clamp(2rem,3.6vw,3.4rem)">From first sketch to first sunrise home.</h2>
+  </div>
+
+  <div class="process-step min-h-[70svh] md:min-h-[85svh] flex items-center px-6 md:px-10 reveal">
+    <div class="max-w-[1440px] mx-auto w-full grid md:grid-cols-12 gap-8 items-center">
+      <p class="md:col-span-2 font-serif-ed italic" style="color:var(--bronze-light); font-size:3rem">01</p>
+      <div class="md:col-span-5">
+        <p class="eyebrow" style="color:var(--limestone)">Imagine</p>
+        <h3 class="font-serif-ed font-normal mt-3" style="color:var(--ivory); font-size:clamp(2rem,4vw,3.2rem)">Imagine</h3>
+        <p class="mt-6 font-light leading-relaxed max-w-sm" style="color:var(--travertine); opacity:0.85">Site walks, hand sketches, and long conversations at the kitchen table, before there's a kitchen table.</p>
+      </div>
+      <div class="md:col-span-5 h-64 md:h-96 img-zoom p-2 ad-card-dark">
+        <img src="https://images.unsplash.com/photo-1503387837-b154d5074bd2?fm=jpg&q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover" alt="Hand-drafted architectural blueprint">
+      </div>
+    </div>
+  </div>
+
+  <div class="process-step min-h-[70svh] md:min-h-[85svh] flex items-center px-6 md:px-10 reveal" style="background:rgba(0,0,0,0.15)">
+    <div class="max-w-[1440px] mx-auto w-full grid md:grid-cols-12 gap-8 items-center">
+      <p class="md:col-span-2 font-serif-ed italic" style="color:var(--bronze-light); font-size:3rem">02</p>
+      <div class="md:col-span-5 md:order-2">
+        <p class="eyebrow" style="color:var(--limestone)">Craft</p>
+        <h3 class="font-serif-ed font-normal mt-3" style="color:var(--ivory); font-size:clamp(2rem,4vw,3.2rem)">Craft</h3>
+        <p class="mt-6 font-light leading-relaxed max-w-sm" style="color:var(--travertine); opacity:0.85">Framers, stoneworkers, and finish carpenters take the drawings and make them true, beam by beam.</p>
+      </div>
+      <div class="md:col-span-5 md:order-1 h-64 md:h-96 img-zoom p-2 ad-card-dark">
+        <img src="https://images.unsplash.com/photo-1641025925967-08057696111e?fm=jpg&q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover" alt="Hand-set stone masonry detail">
+      </div>
+    </div>
+  </div>
+
+  <div class="process-step min-h-[70svh] md:min-h-[85svh] flex items-center px-6 md:px-10 reveal">
+    <div class="max-w-[1440px] mx-auto w-full grid md:grid-cols-12 gap-8 items-center">
+      <p class="md:col-span-2 font-serif-ed italic" style="color:var(--bronze-light); font-size:3rem">03</p>
+      <div class="md:col-span-5">
+        <p class="eyebrow" style="color:var(--limestone)">Live</p>
+        <h3 class="font-serif-ed font-normal mt-3" style="color:var(--ivory); font-size:clamp(2rem,4vw,3.2rem)">Live</h3>
+        <p class="mt-6 font-light leading-relaxed max-w-sm" style="color:var(--travertine); opacity:0.85">Keys in hand, and a home ready for the first of many mornings, and the family after yours.</p>
+      </div>
+      <div class="md:col-span-5 img-zoom h-64 md:h-96 p-2 ad-card-dark">
+        <img src="https://images.squarespace-cdn.com/content/v1/65ee449c0319a72cd37c98ca/ca447192-975e-4389-952b-e104d0ef932e/121-print-Peak+View+-+Twilight+-+HD-4.jpg" class="w-full h-full object-cover" alt="Finished Big Sky residence at twilight">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOUNDER STORY ===== -->
+<section id="founders" class="relative py-28 md:py-40 px-6 md:px-10" style="background:var(--ivory)">
+  <div class="max-w-[1440px] mx-auto grid md:grid-cols-12 gap-16 items-center">
+    <div class="md:col-span-5 reveal img-zoom h-[420px] md:h-[520px] p-2 ad-card-light">
+      <img src="https://images.unsplash.com/photo-1579494646587-7d6760bc9cca?fm=jpg&q=80&w=1600&auto=format&fit=crop" class="w-full h-full object-cover" alt="Hand-finished walnut millwork, a Robert family signature detail">
+    </div>
+    <div class="md:col-span-7 reveal">
+      <p class="eyebrow" style="color:var(--bronze)">The Robert Family</p>
+      <h2 class="font-serif-ed font-normal mt-6 leading-[1.05]" style="font-size:clamp(2rem,3.6vw,3.2rem)">
+        "We never set out to build a company. We set out to build homes we'd be proud to sign."
+      </h2>
+      <p class="mt-8 font-light leading-relaxed max-w-lg" style="opacity:0.85">
+        Tom Robert framed his first house in Scottsdale in 1997 with a borrowed truck and a small crew of friends. His daughter, Claire, now leads design. Her son, Wes, runs the field. Three generations, one standard: build it like it's the last house you'll ever get to build.
+      </p>
+      <p class="font-hand mt-10 text-3xl" style="color:var(--bronze)">The Robert Family</p>
+      <p class="eyebrow mt-2" style="color:var(--concrete)">Founders, Big Sky Custom Homes</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MATERIALS ===== -->
+<section class="relative py-28 md:py-40 px-6 md:px-10" style="background:var(--black)">
+  <div class="max-w-[1440px] mx-auto">
+    <p class="eyebrow reveal" style="color:var(--bronze-light)">Materials</p>
+    <h2 class="font-serif-ed font-normal mt-6 mb-16 leading-[1.05] reveal" style="color:var(--ivory); font-size:clamp(2rem,3.6vw,3.4rem)">What a Big Sky home is made of.</h2>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div class="reveal img-zoom relative h-56 ad-card-dark p-1.5">
+        <img src="https://images.unsplash.com/photo-1641025925967-08057696111e?fm=jpg&q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover" alt="Natural stone material detail">
+        <p class="eyebrow absolute bottom-4 left-4" style="color:var(--ivory); text-shadow:0 2px 8px rgba(0,0,0,0.6)">Stone</p>
+      </div>
+      <div class="reveal img-zoom relative h-56 ad-card-dark p-1.5">
+        <img src="https://images.unsplash.com/photo-1579494646587-7d6760bc9cca?fm=jpg&q=80&w=900&auto=format&fit=crop" class="w-full h-full object-cover" alt="Natural wood material detail">
+        <p class="eyebrow absolute bottom-4 left-4" style="color:var(--ivory); text-shadow:0 2px 8px rgba(0,0,0,0.6)">Wood</p>
+      </div>
+      <div class="reveal h-56 flex items-end p-6 ad-card-dark" style="background-image:linear-gradient(160deg,#54565a,#131313), repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 40px); background-blend-mode:overlay;"><p class="eyebrow" style="color:var(--travertine)">Steel</p></div>
+      <div class="reveal h-56 flex items-end p-6 ad-card-dark" style="background-image:linear-gradient(160deg,#3d4a4a,#0d1212), linear-gradient(115deg, rgba(255,255,255,0.12) 0%, transparent 25%, transparent 75%, rgba(255,255,255,0.08) 100%);"><p class="eyebrow" style="color:var(--travertine)">Glass</p></div>
+      <div class="reveal h-56 flex items-end p-6 ad-card-dark" style="background-image:linear-gradient(160deg,#635e54,#18160f), repeating-radial-gradient(circle at 30% 40%, rgba(255,255,255,0.03) 0 1px, transparent 1px 3px);"><p class="eyebrow" style="color:var(--travertine)">Concrete</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIAL ===== -->
+<section class="relative py-28 md:py-40 px-6 md:px-10" style="background:var(--travertine)">
+  <div class="max-w-3xl mx-auto text-center reveal">
+    <p class="font-serif-ed italic leading-tight" style="font-size:clamp(1.6rem,3.4vw,2.6rem)">
+      "They asked questions no one else had asked, about how our mornings actually go. Two years later, the house answers them."
+    </p>
+    <p class="eyebrow mt-8" style="color:var(--bronze)">The Halversons, Paradise Valley</p>
+  </div>
+</section>
+
+<!-- ===== SERVICE AREAS ===== -->
+<section id="areas" class="relative py-28 md:py-40 px-6 md:px-10" style="background:var(--ivory)">
+  <div class="max-w-[1440px] mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <div class="reveal">
+      <p class="eyebrow" style="color:var(--bronze)">Where We Build</p>
+      <h2 class="font-serif-ed font-normal mt-6 leading-[1.05]" style="font-size:clamp(2rem,3.6vw,3.4rem)">Across Arizona's high desert.</h2>
+      <div class="mt-12 space-y-0">
+        <div class="hairline"></div>
+        <div class="flex items-center justify-between py-5"><span class="font-serif-ed italic text-xl">Scottsdale</span><span class="eyebrow" style="color:var(--concrete)">HQ</span></div>
+        <div class="hairline"></div>
+        <div class="flex items-center justify-between py-5"><span class="font-serif-ed italic text-xl">Paradise Valley</span></div>
+        <div class="hairline"></div>
+        <div class="flex items-center justify-between py-5"><span class="font-serif-ed italic text-xl">Show Low</span></div>
+        <div class="hairline"></div>
+        <div class="flex items-center justify-between py-5"><span class="font-serif-ed italic text-xl">Prescott</span></div>
+        <div class="hairline"></div>
+      </div>
+    </div>
+    <div class="reveal flex items-center justify-center">
+      <svg viewBox="0 0 500 500" class="w-full max-w-[440px]">
+        <path d="M100,380 L140,120 L280,80 L400,160 L420,400 L260,440 Z" fill="none" stroke="var(--limestone)" stroke-width="1"/>
+        <circle cx="220" cy="230" r="5" fill="var(--bronze)"/>
+        <text x="235" y="228" style="fill:var(--charcoal); font-size:12px" class="eyebrow">Scottsdale</text>
+        <circle cx="310" cy="270" r="4" fill="var(--bronze)" opacity="0.7"/>
+        <text x="322" y="273" style="fill:var(--charcoal); font-size:12px" class="eyebrow">Paradise Valley</text>
+        <circle cx="180" cy="150" r="4" fill="var(--bronze)" opacity="0.7"/>
+        <text x="190" y="145" style="fill:var(--charcoal); font-size:12px" class="eyebrow">Prescott</text>
+        <circle cx="360" cy="180" r="4" fill="var(--bronze)" opacity="0.7"/>
+        <text x="372" y="180" style="fill:var(--charcoal); font-size:12px" class="eyebrow">Show Low</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section id="contact" class="relative h-[80svh] md:h-[90svh] w-full overflow-hidden" style="background:var(--black)">
+  <img src="https://images.squarespace-cdn.com/content/v1/65ee449c0319a72cd37c98ca/ca447192-975e-4389-952b-e104d0ef932e/121-print-Peak+View+-+Twilight+-+HD-4.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Twilight home, final call to action">
+  <div class="absolute inset-0" style="background:linear-gradient(0deg, rgba(19,17,16,0.9), rgba(19,17,16,0.4))"></div>
+  <div class="relative h-full flex flex-col items-center justify-center text-center px-6">
+    <h2 class="font-serif-ed font-normal reveal leading-[1.05]" style="color:var(--ivory); font-size:clamp(2rem,5vw,4rem)">
+      Let's build something your<br class="hidden md:block"> grandchildren will admire.
+    </h2>
+    <a href="mailto:hello@bigskycustomhomes.com" class="mt-10 px-9 py-4 eyebrow reveal" style="background:var(--bronze); color:var(--black)">Schedule a Private Consultation</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="relative py-14 px-6 md:px-10" style="background:var(--black); color:var(--travertine)">
+  <div class="max-w-[1440px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+    <p class="font-serif-ed italic text-lg" style="color:var(--ivory)">Big Sky Custom Homes</p>
+    <div class="eyebrow flex flex-wrap gap-8" style="color:var(--concrete)">
+      <span>Scottsdale, AZ</span>
+      <span>Est. 1997</span>
+      <span>ROC Licensed &amp; Bonded</span>
+    </div>
+    <p class="eyebrow" style="color:var(--concrete)">&copy; 2026 Big Sky Custom Homes</p>
+  </div>
+</footer>
+
+<script>
+try {
+if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+  throw new Error('GSAP failed to load');
+}
+gsap.registerPlugin(ScrollTrigger);
+document.documentElement.classList.add('js-ready');
+
+// Nav state on scroll
+const nav = document.getElementById('nav');
+const logo = document.getElementById('logo-mark');
+const navLinks = document.getElementById('nav-links');
+const navCta = document.getElementById('nav-cta');
+ScrollTrigger.create({
+  start: 60, end: 99999,
+  onUpdate: self => {
+    if(self.scroll() > 60){
+      nav.style.background = 'rgba(244,239,230,0.92)';
+      nav.style.backdropFilter = 'blur(10px)';
+      logo.style.color = '#2A2621';
+      navLinks.style.color = '#2A2621';
+      navCta.style.color = '#2A2621';
+      navCta.style.borderColor = 'rgba(42,38,33,0.35)';
+    } else {
+      nav.style.background = 'transparent';
+      nav.style.backdropFilter = 'none';
+      logo.style.color = '#F4EFE6';
+      navLinks.style.color = '#F4EFE6';
+      navCta.style.color = '#F4EFE6';
+      navCta.style.borderColor = 'rgba(244,239,230,0.4)';
+    }
+  }
+});
+
+// Hero entrance
+gsap.timeline({ delay: 0.2 })
+  .to('#hero-eyebrow', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' })
+  .to('#hero-h1', { opacity: 1, y: 0, duration: 1.1, ease: 'power3.out' }, '-=0.6')
+  .to('#hero-copy', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, '-=0.7')
+  .to('#hero-ctas', { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }, '-=0.6');
+
+// Hero parallax
+gsap.to('#hero-img', {
+  yPercent: 12, ease: 'none',
+  scrollTrigger: { trigger: '#top', start: 'top top', end: 'bottom top', scrub: true }
+});
+
+// Generic reveal for all .reveal not in hero
+document.querySelectorAll('.reveal').forEach(el => {
+  if (el.closest('#top')) return;
+  gsap.to(el, {
+    opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+    scrollTrigger: { trigger: el, start: 'top 88%' }
+  });
+});
+
+// Legacy rings draw-in
+ScrollTrigger.create({
+  trigger: '#rings-svg', start: 'top 75%',
+  onEnter: () => {
+    gsap.to('.ring-path', { strokeDashoffset: 0, duration: 1.8, ease: 'power2.out', stagger: 0.15 });
+  }
+});
+
+} catch (err) {
+  // If GSAP/ScrollTrigger ever fails to load, make sure every section is still visible.
+  document.documentElement.classList.remove('js-ready');
+  console.error('Animation setup failed, falling back to static layout:', err);
+}
+</script>
+</body>
+</html>
